@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const NoteSchema = new Schema ({
     title: { type: String, require: true},
     description: { type: String, require: true},
-    date: { type: Date, defaul: Date.now}
+    date: { type: Date, default: Date.now}
 })
 
 module.exports = mongoose.model("Note", NoteSchema)
