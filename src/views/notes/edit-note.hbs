@@ -5,7 +5,7 @@
         </div>
         <div class="card-body">
             <form action="/notes/edit-note/{{note._id}}?_method=PUT" method="post">
-                <input type="hidden" name="_method" value="PUT">
+                {{!-- <input type="hidden" name="_method" value="PUT"> --}}
                 <div class="mt-3">
                     <input type="text" name="title" class="form-control" value="{{note.title}}">
                 </div>

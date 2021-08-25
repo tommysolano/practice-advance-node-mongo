@@ -21,12 +21,13 @@ app.set("view engine", ".hbs")
 
 //middlewares
 app.use(express.urlencoded({extended: false}))
-app.use(methodOverride("_method"))
+app.use(methodOverride('_method', {methods: ["POST", "GET"]}))
 app.use(session({
     secret: "mysecretapp",
     resave: true,
     saveUninitialized: true
 }))
+
 
 //global variables
 
