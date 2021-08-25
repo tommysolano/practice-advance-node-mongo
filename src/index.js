@@ -3,6 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars'); // view engine
 const methodOverride = require('method-override') // can send put and deleted
 const session = require('express-session'); 
+const flash = require('connect-flash')
 
 //initiliazations
 const app = express();
@@ -27,9 +28,16 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
-
+app.use(flash())
 
 //global variables
+app.use((req, res, next) =>{
+    res.locals.success_msg = req.flash("success_msg")
+    res.locals.errors_msg = req.flash("errors_msg")
+
+    next()
+})
+
 
 //routes
 app.use(require("./routes/index"))
