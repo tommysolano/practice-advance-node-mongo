@@ -6,5 +6,8 @@ body {
 
 .logo {
     width: 30%;
+}
 
+.dropdown {
+    margin-right: 15px;
 }

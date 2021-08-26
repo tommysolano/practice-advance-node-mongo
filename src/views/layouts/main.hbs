@@ -10,7 +10,9 @@
         <title>Notes App</title>
     </head>
     <body>
-        <main class="container">
+
+        {{> navigation }}
+        <main class="container p-4">
             {{> messages}}
             {{> errors}}
             {{{ body }}}
