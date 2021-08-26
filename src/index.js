@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash')
 const passport = require('passport')
 
+
 //initiliazations
 const app = express();
 require("./database")
@@ -18,6 +19,10 @@ app.engine(".hbs", exphbs({
     defaultLayout: "main",
     layoutsDir: path.join(app.get("views"), 'layouts'),
     partialsDir: path.join(app.get("views"), 'partials'),
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true,
+        allowProtoMethodsByDefault: true,
+    },
     extname: ".hbs"
 }))
 app.set("view engine", ".hbs")
@@ -39,6 +44,7 @@ app.use((req, res, next) =>{
     res.locals.success_msg = req.flash("success_msg")
     res.locals.errors_msg = req.flash("errors_msg")
     res.locals.error = req.flash("error")
+    res.locals.user = req.user || null;
     next()
 })
 
